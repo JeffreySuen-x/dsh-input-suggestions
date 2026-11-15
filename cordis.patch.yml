@@ -1,0 +1,3 @@
+- insert:
+    - id: dsh-input-suggestions
+      name: '@learning-ai/dsh-input-suggestions'

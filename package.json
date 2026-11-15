@@ -1,0 +1,54 @@
+{
+  "name": "@learning-ai/dsh-input-suggestions",
+  "version": "0.4.4",
+  "private": true,
+  "type": "module",
+  "description": "在原生输入框预测下一句，可结合阅读选文和进程顾问。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "lib/client.js",
+    "prediction/index.js",
+    "prediction/src",
+    "prediction/licenses",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale",
+    "README.md",
+    "NOTICE.md"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/dsh-typert-protocol": "0.2.2-rc.3",
+    "@deepseek-ai/dsh-session": "0.2.2-rc.3",
+    "@deepseek-ai/dsh-llm": "0.2.2-rc.3",
+    "@deepseek-ai/dsh-storage-domain": "0.2.2-rc.3",
+    "@deepseek-ai/dsh-tools": "0.2.2-rc.3",
+    "zod": "4.6.6"
+  },
+  "engines": {
+    "node": ">=22.19.0",
+    "dsh": "0.2.2-rc.3"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ],
+      "immediately": false
+    }
+  }
+}
